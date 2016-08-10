@@ -1,14 +1,13 @@
 package com.epam.bytya.module4_hometask2;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.Annotations;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class WKTSTest {
 
     // Initialization
-    public static final String START_URL = "https://wlst-sprint-wktsadmin-web.tw.intra:7810/";
+    public static final String START_URL = "https://wlst-sprint-wktsadmin-web-02.tw.intra:7810/MainModule.html#login/";
     public static final String PROFILE = "D:\\profile";
     public static final String BINARY = "c:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe";
     public static final String LOGIN= "wktsadmin";
@@ -52,7 +51,6 @@ public class WKTSTest {
     // Open the list of blacklisted companies
     @Test(dependsOnMethods = "loginToWKTS", description = "Open blacklisted companies list")
     public void openBlacklisted(){
-        System.out.println("Starting login test");
         new WKTSHomePage(driver).openBlacklist();
         //PageFactory.initElements(driver, WKTSHomePage.class).openBlacklist();
         Assert.assertTrue(new WKTSBlacklistPage(driver).isPageShown(), "Blacklisted menu item is unavailable");
