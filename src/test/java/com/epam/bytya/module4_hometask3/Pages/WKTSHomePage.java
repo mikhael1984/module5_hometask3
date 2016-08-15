@@ -1,5 +1,6 @@
-package com.epam.bytya.module4_hometask2;
+package com.epam.bytya.module4_hometask3.Pages;
 
+import com.epam.bytya.module4_hometask3.Highlighter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +25,7 @@ public class WKTSHomePage extends Page {
     }
 
     public void openBlacklist(){
+        Highlighter.highlightWithJS(blacklistedCompanyMenuItem);
         blacklistedCompanyMenuItem.click();
     }
 
