@@ -24,11 +24,13 @@
         <processorPath useClasspath="true" />
         <module name="module4_hometask1" />
         <module name="module4_hometask2" />
+        <module name="module4_hometask3" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="module4_hometask1" target="1.5" />
       <module name="module4_hometask2" target="1.5" />
+      <module name="module4_hometask3" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

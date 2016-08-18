@@ -1,5 +1,6 @@
 package com.epam.bytya.module4_hometask3.Pages;
 
+import com.epam.bytya.module4_hometask3.businessObjects.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,14 +25,14 @@ public class WKTSLoginPage extends Page {
         PageFactory.initElements(this.driver, this);
     }
 
-    public void loginToWKTS(String login, String password){
+    public void loginToWKTS(User user){
         highlight(enterUser);
         enterUser.clear();
-        enterUser.sendKeys(login);
+        enterUser.sendKeys(user.getLogin());
 
         highlight(enterPassword);
         enterPassword.clear();
-        enterPassword.sendKeys(password);
+        enterPassword.sendKeys(user.getPassword());
 
         highlight(loginButton);
         loginButton.click();

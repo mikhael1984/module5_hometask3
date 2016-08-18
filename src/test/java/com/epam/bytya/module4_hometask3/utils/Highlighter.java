@@ -1,4 +1,4 @@
-package com.epam.bytya.module4_hometask3;
+package com.epam.bytya.module4_hometask3.utils;
 
 import com.epam.bytya.module4_hometask3.tests.wktsTestFirefox;
 import org.openqa.selenium.JavascriptExecutor;
