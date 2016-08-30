@@ -1,4 +1,4 @@
-package com.epam.bytya.module4_hometask3.businessObjects;
+package com.epam.bytya.module5_hometask2.businessObjects;
 
 /**
  * Created by Mikhail_Mereminskiy on 8/17/2016.

@@ -1,6 +1,6 @@
-package com.epam.bytya.module4_hometask3.Pages;
+package com.epam.bytya.module5_hometask2.Pages;
 
-import com.epam.bytya.module4_hometask3.utils.Highlighter;
+import com.epam.bytya.module5_hometask2.utils.Highlighter;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

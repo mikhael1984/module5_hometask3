@@ -1,6 +1,6 @@
-package com.epam.bytya.module4_hometask3.Pages;
+package com.epam.bytya.module5_hometask2.Pages;
 
-import com.epam.bytya.module4_hometask3.businessObjects.User;
+import com.epam.bytya.module5_hometask2.businessObjects.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,11 +28,11 @@ public class WKTSLoginPage extends Page {
     public void loginToWKTS(User user){
         highlight(enterUser);
         enterUser.clear();
-        enterUser.sendKeys(user.getLogin());
+        enterUser.sendKeys(User.getLogin());
 
         highlight(enterPassword);
         enterPassword.clear();
-        enterPassword.sendKeys(user.getPassword());
+        enterPassword.sendKeys(User.getPassword());
 
         highlight(loginButton);
         loginButton.click();

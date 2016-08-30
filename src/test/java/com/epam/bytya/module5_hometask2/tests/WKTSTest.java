@@ -1,10 +1,10 @@
-package com.epam.bytya.module4_hometask3.tests;
+package com.epam.bytya.module5_hometask2.tests;
 
-import com.epam.bytya.module4_hometask3.Pages.WKTSBlacklistPage;
-import com.epam.bytya.module4_hometask3.Pages.WKTSHomePage;
-import com.epam.bytya.module4_hometask3.Pages.WKTSLoginPage;
-import com.epam.bytya.module4_hometask3.businessObjects.User;
-import com.epam.bytya.module4_hometask3.driver.ChromeGen;
+import com.epam.bytya.module5_hometask2.Pages.WKTSBlacklistPage;
+import com.epam.bytya.module5_hometask2.Pages.WKTSHomePage;
+import com.epam.bytya.module5_hometask2.Pages.WKTSLoginPage;
+import com.epam.bytya.module5_hometask2.businessObjects.User;
+import com.epam.bytya.module5_hometask2.driver.ChromeGen;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;

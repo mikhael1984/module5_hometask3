@@ -3,12 +3,12 @@
 <suite name="WKTS test suite">
 
     <listeners>
-        <listener class-name="com.epam.bytya.module4_hometask3.listeners.WKTSListener"/>
+        <listener class-name="com.epam.bytya.module5_hometask2.listeners.WKTSListener"/>
     </listeners>
 
     <test name="Test blacklist">
         <classes>
-            <class name="com.epam.bytya.module4_hometask3.tests.wktsTestFirefox"/>
+            <class name="com.epam.bytya.module5_hometask2.tests.wktsTestFirefox"/>
         </classes>
     </test>
 

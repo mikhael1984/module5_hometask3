@@ -1,4 +1,4 @@
-package com.epam.bytya.module4_hometask3.driver;
+package com.epam.bytya.module5_hometask2.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

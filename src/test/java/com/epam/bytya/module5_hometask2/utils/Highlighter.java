@@ -1,13 +1,9 @@
-package com.epam.bytya.module4_hometask3.utils;
+package com.epam.bytya.module5_hometask2.utils;
 
-import com.epam.bytya.module4_hometask3.tests.WKTSTest;
-import org.openqa.selenium.By;
+import com.epam.bytya.module5_hometask2.tests.WKTSTest;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Mikhail_Mereminskiy on 8/12/2016.
