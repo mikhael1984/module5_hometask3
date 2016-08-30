@@ -1,16 +1,20 @@
 package com.epam.bytya.module4_hometask3.utils;
 
-import com.epam.bytya.module4_hometask3.tests.wktsTestFirefox;
+import com.epam.bytya.module4_hometask3.tests.WKTSTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Mikhail_Mereminskiy on 8/12/2016.
  */
 public class Highlighter {
 
-    private static WebDriver webDriver = wktsTestFirefox.getDriver();
+    private static WebDriver webDriver = WKTSTest.getDriver();
 
     public static void highlightWithJS(WebElement element) {
         String bg = element.getCssValue("backgroundColor");

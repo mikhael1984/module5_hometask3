@@ -3,27 +3,22 @@ package com.epam.bytya.module4_hometask3.tests;
 import com.epam.bytya.module4_hometask3.Pages.WKTSBlacklistPage;
 import com.epam.bytya.module4_hometask3.Pages.WKTSHomePage;
 import com.epam.bytya.module4_hometask3.Pages.WKTSLoginPage;
-import org.openqa.selenium.Platform;
+import com.epam.bytya.module4_hometask3.businessObjects.User;
+import com.epam.bytya.module4_hometask3.driver.ChromeGen;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Mikhail_Mereminskiy on 8/3/2016.
  */
-public class wktsTestFirefox {
+public class WKTSTest {
 
     // Initialization
     public static final String START_URL = "https://wlst-sprint-wktsadmin-web-02.tw.intra:7810/MainModule.html#login/";
@@ -34,6 +29,7 @@ public class wktsTestFirefox {
     public static final String PASSWORD = "pwd";
 
     private static WebDriver driver;
+    private static User user;
 
     public static WebDriver getDriver(){
         if (driver == null){
@@ -44,18 +40,11 @@ public class wktsTestFirefox {
 
     private static void setDriver(){
 
-        // Tune Firefox
-        DesiredCapabilities dcFirefox = DesiredCapabilities.firefox();
-        FirefoxProfile profile = new FirefoxProfile(new File(FOX_PROFILE));
-        dcFirefox.setPlatform(Platform.WINDOWS);
-        dcFirefox.setCapability(FirefoxDriver.PROFILE, profile);
+        String choice = "";
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        try {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dcFirefox);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
+        //driver = new FoxDriverGen().generateDriver();
+        driver = new ChromeGen().generateDriver();
     }
 
     @BeforeClass(description = "Start browser")
@@ -74,7 +63,7 @@ public class wktsTestFirefox {
     // Perform login
     @Test(description = "Login to WKTS")
     public void loginToWKTS(){
-        new WKTSLoginPage(driver).loginToWKTS(LOGIN, PASSWORD);
+        new WKTSLoginPage(driver).loginToWKTS(user);
         Assert.assertTrue(new WKTSHomePage(driver).isLoginSuccess(), "Login failed: ");
     }
 
