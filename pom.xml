@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>module4_hometask3</groupId>
-    <artifactId>module4_hometask3</artifactId>
+    <groupId>module5_hometask2</groupId>
+    <artifactId>module5_hometask2</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>module4_hometask3</name>
+    <name>module5_hometask2</name>
     <dependencies>
 
         <dependency>
