@@ -1,6 +1,6 @@
-package com.epam.bytya.module5_hometask2.Pages;
+package com.epam.bytya.module5_hometask3.Pages;
 
-import com.epam.bytya.module5_hometask2.businessObjects.User;
+import com.epam.bytya.module5_hometask3.businessObjects.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

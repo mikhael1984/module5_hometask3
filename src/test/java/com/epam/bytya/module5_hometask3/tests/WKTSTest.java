@@ -1,10 +1,11 @@
-package com.epam.bytya.module5_hometask2.tests;
+package com.epam.bytya.module5_hometask3.tests;
 
-import com.epam.bytya.module5_hometask2.Pages.WKTSBlacklistPage;
-import com.epam.bytya.module5_hometask2.Pages.WKTSHomePage;
-import com.epam.bytya.module5_hometask2.Pages.WKTSLoginPage;
-import com.epam.bytya.module5_hometask2.businessObjects.User;
-import com.epam.bytya.module5_hometask2.driver.ChromeGen;
+import com.epam.bytya.module5_hometask3.Pages.WKTSBlacklistPage;
+import com.epam.bytya.module5_hometask3.Pages.WKTSHomePage;
+import com.epam.bytya.module5_hometask3.Pages.WKTSLoginPage;
+import com.epam.bytya.module5_hometask3.businessObjects.User;
+import com.epam.bytya.module5_hometask3.driver.ChromeGen;
+import com.epam.bytya.module5_hometask3.driver.FoxDriverGen;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -28,6 +29,8 @@ public class WKTSTest {
     public static final String LOGIN= "wktsadmin";
     public static final String PASSWORD = "pwd";
 
+    private String companyRemoved;
+
     private static WebDriver driver;
     private static User user;
 
@@ -47,45 +50,52 @@ public class WKTSTest {
         driver = new ChromeGen().generateDriver();
     }
 
-    @BeforeClass(description = "Start browser")
-    public void startBrowser(){
+    //@BeforeClass(description = "Start browser")
+    public static void startBrowser(){
         driver = getDriver();
         driver.get(START_URL);
-    }
-
-    @BeforeClass(description = "Add implicit wait and maximize browser window", dependsOnMethods = "startBrowser")
-    public void addImplicitly(){
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 
+/*    @BeforeClass(description = "Add implicit wait and maximize browser window", dependsOnMethods = "startBrowser")
+    public void addImplicitly(){
 
-    // Perform login
-    @Test(description = "Login to WKTS")
-    public void loginToWKTS(){
+    }*/
+
+    public static void loginToWKTS() {
         new WKTSLoginPage(driver).loginToWKTS(user);
+    }
+
+    public static void assertLoginSuccess(){
         Assert.assertTrue(new WKTSHomePage(driver).isLoginSuccess(), "Login failed: ");
     }
 
     // Open the list of blacklisted companies
-    @Test(dependsOnMethods = "loginToWKTS", description = "Open blacklisted companies list")
-    public void openBlacklisted(){
+    public static void openBlacklisted() {
         new WKTSHomePage(driver).openBlacklist();
+    }
+
+    public static void assertBlacklistedOpen(){
         Assert.assertTrue(new WKTSBlacklistPage(driver).isPageShown(), "Blacklisted menu item is unavailable: ");
-        System.out.println("");
     }
 
     // Remove first company from blacklist
-    @Test(dependsOnMethods = "openBlacklisted", description = "Remove a company from blacklist")
-    public void removeCompanyFromBlacklist() throws InterruptedException {
+    public static void removeCompanyFromBlacklist() throws InterruptedException {
         new WKTSBlacklistPage(driver).unblockCompany();
+    }
+
+    public static void assertCompanyRemoved(){
         Assert.assertFalse(new WKTSBlacklistPage(driver).isCompanyBlocked(), "Company not removed: ");
     }
 
     //Search in blacklist
-    @Test(dependsOnMethods = "removeCompanyFromBlacklist", description = "Search unblocked")
-    public void blacklistSearch(){
+    public static void blacklistSearch(){
         new WKTSBlacklistPage(driver).unblockedCompanySearch();
+
+    }
+
+    public static void assertCompanyNotFound(){
         Assert.assertFalse(new WKTSBlacklistPage(driver).isCompanyBlocked(), "Company was found, not unblocked: ");
     }
 
